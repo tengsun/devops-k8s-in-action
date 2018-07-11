@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-app-liveness
+spec:
+  containers:
+  - image: tengsun/node-app-unhealthy
+    name: node-app-unhealthy
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 1234

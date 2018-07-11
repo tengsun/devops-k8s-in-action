@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-app-manual-v3
+spec:
+  nodeSelector:
+    owner: st
+  containers:
+  - image: tengsun/node-app
+    name: node-app
+    ports:
+    - containerPort: 1234
+      protocol: TCP

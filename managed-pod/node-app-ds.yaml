@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta2
+kind: DaemonSet
+metadata:
+  name: node-app
+spec:
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      nodeSelector:
+        type: worker
+      containers:
+      - name: node-app
+        image: tengsun/node-app
+        ports:
+        - containerPort: 1234
