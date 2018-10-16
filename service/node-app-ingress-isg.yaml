@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: node-app-ingress
+  annotations:
+    ingress.bluemix.net/ALB-ID: private-cre1c00d6af9d34a0c938fd0203c747ebb-alb1
+    ingress.bluemix.net/rewrite-path: "serviceName=node-app-service rewrite=/"
+spec:
+  rules:
+  - host: 9.208.8.0.nip.io
+    http:
+      paths:
+      - path: /nodeapp
+        backend:
+          serviceName: node-app-service
+          servicePort: 80
