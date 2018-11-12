@@ -1,0 +1,15 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: node-app
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: node-app
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - image: tengsun/node-app:{VERSION}
+        name: nodejs
